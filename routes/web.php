@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\GoogleLineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('user', [UserController::class, 'index']);
+Route::get('laravel-google-line-chart', [GoogleLineController::class, 'index']);
+Route::get('line-chart', [GoogleLineController::class, 'line_chart']);
+Route::post('get-data-date', [GoogleLineController::class, 'get_data_by_date'])->name('get_data_date');
+Route::get('donut-chart', [GoogleLineController::class, 'donut_chart']);
+Route::post('get-date-dount', [GoogleLineController::class, 'get_date_dount'])->name('get_date_dount');
+
